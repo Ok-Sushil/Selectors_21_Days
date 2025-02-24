@@ -1,0 +1,92 @@
+Topic 2: CSS Selectors – Fundamentals & Usage
+Subtopic a: Basic Selectors – Element, Class, and ID
+===================================================================================================
+🔹 CSS Selectors are another way to locate web elements in Selenium. They are faster than XPath.
+
+✅ Basic CSS Selectors:
+
+Selector Type	Syntax	Example
+ID	            #id	#username
+Class	       .class	.btn-primary
+Tag Name	    tagname	input
+Tag & Class 	tag.class	button.submit-btn
+
+📌 Example:
+
+css
+input#username  /* Selects input field with ID 'username' */
+button.submit   /* Selects button with class 'submit' */
+✅ Example: Finding Elements in Selenium
+
+java
+driver.findElement(By.cssSelector("#username"));  // Select element by ID
+driver.findElement(By.cssSelector(".btn-primary"));  // Select element by class
+
+==========================================================================================
+Subtopic b: Attribute Selectors & Combinators
+1️⃣ Attribute Selectors
+✅ Example: Find an input field with type "text"
+
+css
+input[type='text']
+✅ Example: Find a button with class starting with "btn-"
+
+css
+button[class^='btn-']
+✅ Example: Find a link ending with ".pdf"
+
+css
+a[href$='.pdf']
+✅ Example: Find an input field containing "search" in name
+
+css
+input[name*='search']
+2️⃣ Combinators
+✅ Parent-Child Selector (>)
+
+css
+div > p  /* Selects <p> elements that are DIRECT children of <div> */
+✅ Descendant Selector (Space)
+
+css
+div p  /* Selects ALL <p> inside <div> */
+✅ Adjacent Sibling (+)
+
+css
+h1 + p  /* Selects the first <p> immediately after <h1> */
+✅ General Sibling (~)
+
+css
+h1 ~ p  /* Selects ALL <p> after <h1> */
+📌 Example in Selenium:
+
+java
+driver.findElement(By.cssSelector("div > input"));  // Finds an input field inside a div
+
+
+Subtopic c: XPath vs. CSS – When to Use What?
+======================================================================================
+Feature	XPath	CSS Selector
+Speed	Slower	Faster
+Readability	Less readable	More readable
+Supports Parent Traversing?	✅ Yes	❌ No
+Supports Text Matching?	✅ Yes	❌ No
+Best For?	Complex conditions	Simple element selection
+📌 Use CSS Selectors when:
+✔️ Locating elements based on ID, class, or attributes.
+✔️ You want a faster alternative to XPath.
+
+📌 Use XPath when:
+✔️ You need to traverse parent elements.
+✔️ You need text-based matching.
+
+
+
+===============================================================================
+
+✅ Summary of What You Learned Today:
+✔ XPath Types – Absolute vs. Relative XPath.
+✔ XPath Functions – contains(), text(), and/or.
+✔ CSS Selectors – ID, Class, Attribute-based selection.
+✔ Advanced CSS Combinators – Parent-child, Sibling selectors.
+✔ XPath vs. CSS – When to use which selector.

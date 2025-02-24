@@ -1,0 +1,59 @@
+Topic 1: XPath – Basics & Syntax
+Subtopic a: XPath Expressions – Absolute vs. Relative XPath
+=========================================================================
+🔹 What is XPath?
+XPath (XML Path Language) is used in Selenium to navigate through HTML elements using a path-based approach.
+
+✅ Types of XPath:
+1️⃣ Absolute XPath – Starts from the root (/) and defines the full path.
+2️⃣ Relative XPath – Starts from anywhere (//) and is more flexible.
+
+📌 Example:
+
+html
+<div>
+   <form>
+      <input id="username" type="text" name="user">
+   </form>
+</div>
+
+✅ Absolute XPath:
+
+xpath
+
+/html/body/div/form/input
+🔴 Not recommended because any small change in the structure will break the XPath.
+
+✅ Relative XPath:
+xpath
+Copy
+Edit
+//input[@id='username']
+🟢 Recommended because it is shorter and more reliable.
+
+
+Subtopic b: Common XPath Functions
+=============================================================================================
+1️⃣ contains() – Partial Matching
+✅ Example: Find a button with text containing "Login"
+
+xpath
+//button[contains(text(),'Login')]
+✅ Example: Find an element where class contains "submit"
+
+xpath
+//div[contains(@class, 'submit')]
+2️⃣ text() – Match Exact Text
+✅ Example: Find a link with exact text "Click Here"
+
+xpath
+//a[text()='Click Here']
+3️⃣ and / or – Multiple Conditions
+✅ Example: Find an input field with type text and name user
+
+xpath
+//input[@type='text' and @name='user']
+✅ Example: Find an element with either class "btn" or "submit"
+
+xpath
+//button[@class='btn' or @class='submit']
